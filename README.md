@@ -1,150 +1,111 @@
-# 提示词管理工具
+﻿# Prompt Manager
 
-[English](./README_EN.md)
+> Vue 3 prompt workspace for structured seven-element prompts, AI autofill, local JSON library, and multilingual translation.  
+> 中文：Vue 3 提示词管理工作台，支持七要素结构化提示词、一键 AI 填充、本地 JSON 词库和中英日韩互译。
 
-一个基于 Vue 3 的提示词工作台，用“角色、任务、背景、目标、约束条件、输出格式、参考标准”七个元素把零散需求整理成结构化提示词。它支持调用 OpenAI 兼容大模型一键填充元素、保存本地 JSON 词库、导入导出提示词，并提供中文、英文、日文、韩文互译。
+This repository is packaged to be easy to **star, fork, run, remix, and contribute to**. It keeps the first screen English-first for global GitHub discovery, while preserving a Chinese guide below.
 
-如果你经常写提示词、改提示词、找以前写过的提示词，这个工具会很顺手。欢迎 Star、Fork、提建议，也欢迎把你的提示词管理习惯一起带进来，让它变成更适合创作者和开发者的 Prompt 工作台。
+## Why Star This
+
+- Practical project idea with a clear real-world use case.
+- Small enough to fork, study, and customize quickly.
+- English-first bilingual README for both global and Chinese-speaking developers.
+- Clean setup instructions, project structure, roadmap, and contribution entry points.
+- Built around popular GitHub themes such as AI tools, TypeScript, developer tools, local-first apps, automation, and indie-friendly workflows when relevant.
+
+## What It Does
+
+Vue 3 prompt workspace for structured seven-element prompts, AI autofill, local JSON library, and multilingual translation.
+
+## Highlights
+
+- Seven-element structured prompt framework
+- One-click AI autofill through OpenAI-compatible APIs
+- Local JSON prompt library with import/export
+- Chinese, English, Japanese, and Korean translation workflow
+- Vite proxy for local model gateways
+
+## Tech Stack
+
+`	ext
+Vue 3, TypeScript, Vite, Pinia, OpenAI-compatible APIs
+`
+
+## Quick Start
+
+`ash
+npm install`nnpm run dev`n`n# Windows helper`nstart.bat
+`
+
+## Project Structure
+
+`	ext
+.
+|-- src/ or app/          Main source code
+|-- public/ or assets/    Static assets when available
+|-- docs/                 Notes, specs, or deployment docs when available
+|-- README.md             English-first bilingual project guide
+-- package / project files
+`
+
+## Deployment / Packaging
+
+- Do not commit generated builds, local databases, API keys, private logs, or large media files.
+- For frontend projects, deploy the production dist/ folder to GitHub Pages, Vercel, Netlify, Nginx, or package it with DistDesktopLauncher.
+- For desktop/mobile projects, publish only release artifacts from a clean build environment.
+- Keep configuration examples public and real credentials private.
+
+## Roadmap
+
+- [ ] Prompt version history
+- [ ] Team prompt pack export format
+- [ ] MCP or agent integration
+- [ ] More prompt quality scoring helpers
+
+## Contributing
+
+Issues and pull requests are welcome. Useful contributions include better screenshots, demos, docs, templates, presets, provider guides, compatibility fixes, tests, and translations.
+
+If this project helps you, a star and fork make it easier for more people to discover it.
+
+---
+
+# 中文说明
+
+> Vue 3 提示词管理工作台，支持七要素结构化提示词、一键 AI 填充、本地 JSON 词库和中英日韩互译。
+
+这个仓库已经改成 **英文优先、中文在后** 的双语 README，方便 GitHub 全球用户第一眼理解项目，同时保留中文开发者阅读体验。
+
+## 为什么值得 Star / Fork
+
+- 目标场景清晰，不是空壳项目。
+- 项目规模适合学习、二次开发和快速改造。
+- README、路线图、贡献入口和部署说明更完整。
+- topics 会尽量贴近当前 GitHub 热门方向，例如 AI、LLM、OpenAI-compatible、TypeScript、developer-tools、automation、local-first、gamedev 等。
 
 ## 功能亮点
 
-- 七要素提示词模板：把需求拆成角色、任务、背景、目标、约束、输出格式和参考标准。
-- 一键 AI 填充：输入原始需求后，可调用 OpenAI 兼容接口自动补全 7 个元素。
-- 单项补全：每个元素都能单独调用模型补齐，适合边写边调。
-- 实时预览：自动生成标准化提示词，可一键复制。
-- 本地词库：提示词保存到 `data/prompts-library.json`，支持刷新、导入、导出和删除。
-- 旧缓存迁移：会把浏览器旧缓存迁移到本地 JSON 词库。
-- 中英日韩互译：内置翻译弹窗，支持自动识别源语言。
-- 接口代理：Vite 内置本地代理，方便连接本地或远程 OpenAI 兼容接口，减少跨域困扰。
-- API 配置持久化：Base URL、API Key、模型名等会保存在浏览器缓存中。
-
-## 技术栈
-
-- Vue 3
-- TypeScript
-- Vite
-- Pinia
-- Lucide Vue
-- OpenAI-compatible Chat Completions API
+- Seven-element structured prompt framework
+- One-click AI autofill through OpenAI-compatible APIs
+- Local JSON prompt library with import/export
+- Chinese, English, Japanese, and Korean translation workflow
+- Vite proxy for local model gateways
 
 ## 快速开始
 
-### 1. 安装依赖
+`ash
+npm install`nnpm run dev`n`n# Windows helper`nstart.bat
+`
 
-```powershell
-npm install
-```
+## 部署与安全
 
-### 2. 启动开发服务
+- 不要提交 .env、API Key、生成媒体、大型文件、数据库、日志和构建产物。
+- 前端项目可以部署 dist/ 到 GitHub Pages、Vercel、Netlify 或 Nginx。
+- 桌面/移动端项目建议只发布干净环境构建出来的 release 文件。
 
-```powershell
-npm run dev
-```
+## 后续计划
 
-默认访问：
-
-```text
-http://127.0.0.1:5180
-```
-
-也可以直接运行 Windows 脚本：
-
-```powershell
-.\start.bat
-```
-
-### 3. 配置模型接口
-
-页面右上角点击 `API`，填写：
-
-```text
-Base URL: /local-llm/v1
-API Key: test
-Model: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
-```
-
-默认代理会把 `/local-llm/v1/chat/completions` 转发到本地：
-
-```text
-http://127.0.0.1:8008/v1/chat/completions
-```
-
-如果你使用其他 OpenAI 兼容服务，也可以直接填写服务地址，例如：
-
-```text
-https://api.openai.com/v1
-https://api.deepseek.com
-http://127.0.0.1:1234/v1
-```
-
-## 环境变量
-
-可通过 `.env` 或启动环境覆盖默认模型配置：
-
-```env
-OPENAI_CHAT_COMPLETIONS_URL=http://127.0.0.1:8008/v1/chat/completions
-OPENAI_API_KEY=test
-```
-
-也兼容：
-
-```env
-VITE_OPENAI_CHAT_COMPLETIONS_URL=http://127.0.0.1:8008/v1/chat/completions
-VITE_OPENAI_API_KEY=test
-OPENAI_BASE_URL=http://127.0.0.1:8008/v1
-```
-
-## 构建与预览
-
-```powershell
-npm run build
-npm run preview
-```
-
-构建产物会生成在 `dist/`，上传源码仓库时建议不要提交。
-
-## 项目结构
-
-```text
-prompt-manager/
-├─ data/
-│  └─ prompts-library.json      # 运行时自动创建的本地提示词库，默认不提交
-├─ public/
-├─ src/
-│  ├─ components/
-│  │  └─ PromptWorkbench.vue
-│  ├─ services/
-│  │  ├─ fileStorage.ts
-│  │  ├─ llmClient.ts
-│  │  ├─ promptFill.ts
-│  │  ├─ promptTemplate.ts
-│  │  └─ translator.ts
-│  ├─ stores/
-│  │  └─ promptStore.ts
-│  ├─ App.vue
-│  ├─ main.ts
-│  └─ style.css
-├─ package.json
-├─ vite.config.ts
-└─ README.md
-```
-
-## 上传 GitHub 前建议
-
-本项目已经有 `.gitignore`，会排除：
-
-- `node_modules/`
-- `dist/`
-- `*.log`
-- `.env`
-- IDE 缓存
-
-请不要提交真实 API Key。`data/prompts-library.json` 是你的本地提示词库，默认已被忽略；如果要提供示例，请另建脱敏示例文件并确认没有私密提示词、客户信息或内部资料。
-
-## GitHub Topics 建议
-
-`vue`, `typescript`, `vite`, `pinia`, `prompt-engineering`, `prompt-manager`, `llm`, `openai-compatible`, `translation`, `productivity`
-
-## License
-
-如果你准备开源，建议选择 MIT License。这个项目很适合作为个人 AI 工作流工具持续迭代，越多人使用，越容易沉淀出好用的提示词范式。
+- [ ] Prompt version history
+- [ ] Team prompt pack export format
+- [ ] MCP or agent integration
+- [ ] More prompt quality scoring helpers
